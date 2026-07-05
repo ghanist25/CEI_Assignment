@@ -1,0 +1,25 @@
+Database Management System Notes
+
+Chapter 1: Introduction to DBMS
+A database management system (DBMS) is software that is used to create and manage databases. It provides an interface between the user and the database, allowing users to store, retrieve, update and delete data efficiently. Unlike a traditional file system, a DBMS reduces data redundancy and improves data integrity through centralized control.
+
+Chapter 2: ER Model
+The Entity Relationship model is a high level conceptual data model that describes the structure of a database in terms of entities, attributes and relationships. An entity is a real world object that can be distinctly identified, for example a student or a course. Attributes describe the properties of an entity. Relationships describe how two or more entities are associated with each other. Cardinality defines the number of instances of one entity that can be associated with instances of another entity, common types being one-to-one, one-to-many and many-to-many.
+
+Chapter 3: Normalization
+Normalization is the process of organizing data in a database to reduce redundancy and avoid undesirable characteristics like insertion, update and deletion anomalies. The first normal form requires that all attributes contain only atomic values and there should be no repeating groups. The second normal form requires the table to be in first normal form and removes partial dependency, meaning every non key attribute must depend on the whole primary key. The third normal form requires the table to be in second normal form and removes transitive dependency, meaning non key attributes should not depend on other non key attributes. Boyce Codd Normal Form is a stricter version of third normal form where for every functional dependency X to Y, X must be a super key.
+
+Chapter 4: Functional Dependency
+A functional dependency is a constraint between two sets of attributes in a relation. If attribute A functionally determines attribute B, it means that for every value of A there is exactly one associated value of B, this is written as A arrow B. Functional dependencies are used to identify candidate keys and to guide the normalization process. A trivial functional dependency occurs when B is a subset of A.
+
+Chapter 5: Relational Algebra
+Relational algebra is a procedural query language that takes relations as input and produces relations as output. The basic operations include selection which filters rows based on a condition, projection which selects specific columns, union, set difference, cartesian product and rename. Join operations, such as natural join and theta join, combine tuples from two relations based on a related column.
+
+Chapter 6: Transactions and Concurrency Control
+A transaction is a sequence of database operations that is treated as a single logical unit of work. Transactions must satisfy the ACID properties, which stand for atomicity, consistency, isolation and durability. Atomicity ensures that a transaction either completes fully or not at all. Consistency ensures the database remains in a valid state before and after the transaction. Isolation ensures concurrent transactions do not interfere with each other. Durability ensures that once a transaction is committed, its changes persist even after a system failure.
+
+Chapter 7: Serializability
+Serializability is a property of a schedule that ensures the concurrent execution of transactions produces the same result as some serial execution of those transactions. A schedule is conflict serializable if it can be transformed into a serial schedule by swapping non conflicting operations. Two operations conflict if they belong to different transactions, operate on the same data item and at least one of them is a write operation. Precedence graphs are used to test conflict serializability, where a cycle in the graph indicates the schedule is not serializable.
+
+Chapter 8: Concurrency Control Techniques
+Lock based protocols use locks on data items to control concurrent access. Two phase locking is a protocol where a transaction acquires all the locks it needs before releasing any lock, which is divided into a growing phase and a shrinking phase. Timestamp based protocols order transactions based on their timestamps to ensure serializability. Deadlock is a situation where two or more transactions are waiting for each other to release locks, and it can be handled either through deadlock prevention or deadlock detection and recovery.
